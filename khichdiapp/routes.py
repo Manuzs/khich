@@ -25,7 +25,7 @@ def home():
     n = len(recipes)
     rnum = random.randint(1, n)
     rnum2 = random.randint(1, x+1)
-    rec = Recipes.query.filter_by(id = 2)
+    rec = Recipes.query.filter_by(id = rnum2).first()
     return render_template('home.html', rnum = rnum, recipes = recipes, recs = rec )
 
 
@@ -37,5 +37,5 @@ def contribute():
         db.session.add(recipe)
         db.session.commit()
         flash("Your recipe updated",'success')
-        return render_template('contribute.html', form = form)
+        return redirect(url_for('home'))
     return render_template('contribute.html', form = form)
