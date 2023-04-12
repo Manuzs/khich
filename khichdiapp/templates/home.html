@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>Khichdi</h1>
+    <head>
+    <body>
+        <div>
+            {% for recipe in recipes %}
+                {% if recipe[0] == rnum %}
+                    <h2>{{ recipe[0], recipe[1] }}</h2>
+                    <p> {{ recipe[2] }} </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div>
+            <h3> {{ recs.recipe_name }} </h3>
+            <p> {{ recs.ingredients }} </p>
+            <p> {{ recs.recipe }} </p>
+            <h4>Add your own recipes here -</h4>
+            <a href="{{ url_for('contribute') }}">Contribute</a>
+        </div>
+    </body>
+</html>
